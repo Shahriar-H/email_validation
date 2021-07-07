@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Valiedation</title>
+    <link rel="stylesheet" href="./design.css">
+</head>
+
+<body>
+    <form id="frm" class="bodi ">
+        Email: <input id="input_email" class="class1"  type="email" placeholder="Input your Email" onkeydown="valid()"><br>
+        <span id="text">Please put Valid Email</span>
+    </form>
+
+
+    <script type="text/javascript">
+        function valid(){
+            var txt = document.getElementById('text');
+            var mail = document.getElementById('input_email').value;
+            var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if(mail.match(pattern)){
+                txt.innerHTML="Your Email is Valid";
+                txt.style.color = 'green';
+                document.querySelector('#frm').classList.add('class2')
+                document.querySelector('#frm').classList.remove('class1')
+
+
+                
+            }else{
+                txt.innerHTML="Please put Valid Email";
+                txt.style.color = 'red';
+                document.querySelector('#frm').classList.add('class1')
+                document.querySelector('#frm').classList.remove('class2')
+
+
+            }
+
+            if(mail == ''){
+                document.querySelector('#frm').classList.add('class1')
+                document.querySelector('#frm').classList.remove('class2')
+                txt.innerHTML="Please put valid Email";
+                txt.style.color = 'red';
+            }
+
+
+        }
+    </script>
+
+
+</body>
+</html>
